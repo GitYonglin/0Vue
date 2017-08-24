@@ -1,0 +1,668 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "foodCategory": [
+    {
+      "id": 1,
+      "name": "主料",
+      "imgFile": "",
+      "imgUrl": "https://cn.vuejs.org/images/logo.png",
+      "createDate": "2017/7/5 上午2:57:29",
+      "modifyDate": "2017/7/5 上午2:58:05"
+    },
+    {
+      "id": 2,
+      "name": "辅料",
+      "imgFile": "",
+      "imgUrl": "https://cn.vuejs.org/images/logo.png",
+      "createDate": "2017/7/5 上午3:41:06",
+      "modifyDate": "2017/7/5 上午3:41:06"
+    },
+    {
+      "id": 3,
+      "name": "酱料",
+      "imgFile": "",
+      "imgUrl": "https://cn.vuejs.org/images/logo.png",
+      "createDate": "2017/7/5 上午3:42:03",
+      "modifyDate": "2017/7/5 上午3:42:03"
+    },
+    {
+      "id": 4,
+      "name": "其它",
+      "imgFile": "",
+      "imgUrl": "https://cn.vuejs.org/images/logo.png",
+      "createDate": "2017/7/5 上午3:42:10",
+      "modifyDate": "2017/7/5 上午3:42:10"
+    }
+  ],
+  "food": [
+    {
+      "id": 4,
+      "name": "主料1",
+      "unitPrice": "96",
+      "inventory": 999,
+      "desc": "不可描述",
+      "dose": 500,
+      "shelves": true,
+      "minNumber": 1,
+      "minAmount": 100,
+      "maxAmount": 100000,
+      "purchaseDate": "2017-07-30",
+      "createDate": "2017/7/25 下午5:51:15",
+      "modifyDate": "2017/8/2 下午6:36:57",
+      "hedgeDate": "2017-07-30",
+      "imgUrl": "blob:http://localhost:8080/d729cf89-29c3-44f6-b436-53fba70bda7f",
+      "imgFile": {},
+      "manufacturerInformation": {
+        "name": "大厂",
+        "address": "火星",
+        "contactInformation": "12345674567",
+        "productionDate": "2017-07-30",
+        "harvestDate": "2017-07-11"
+      },
+      "pictureText": [
+        {
+          "imgUrl": "blob:null/2b16cd33-97a9-42e9-b7bd-ff4355dbc9cc",
+          "desc": "这个可以不错的",
+          "imgFile": {}
+        },
+        {
+          "imgUrl": "blob:http://localhost:8080/04ff717c-40ed-499b-8c5c-f9531ddf2071",
+          "desc": "",
+          "imgFile": {}
+        }
+      ],
+      "foodCategory": [
+        0,
+        1,
+        4
+      ],
+      "goodsCategory": [
+        1,
+        2
+      ],
+      "edit": false,
+      "rowState": true
+    },
+    {
+      "id": 5,
+      "name": "主料2",
+      "unitPrice": 55.55,
+      "inventory": 999,
+      "desc": "不可描述",
+      "dose": 500,
+      "shelves": true,
+      "minNumber": 1,
+      "minAmount": 100,
+      "maxAmount": 100000,
+      "purchaseDate": "2017-07-11",
+      "createDate": "2017/7/25 下午6:05:36",
+      "modifyDate": "2017/7/30 上午2:43:41",
+      "hedgeDate": "2017-07-11",
+      "imgUrl": "blob:http://localhost:8080/f297fc3e-80ba-403c-abb2-a52d36ea1388",
+      "imgFile": {},
+      "manufacturerInformation": {
+        "name": "大厂",
+        "address": "火星",
+        "contactInformation": "12345674567",
+        "productionDate": "2017-07-11",
+        "harvestDate": "2017-07-11"
+      },
+      "pictureText": [
+        {
+          "imgUrl": "blob:null/d14fad78-8f0d-4711-9592-96b67ec8a1fd",
+          "desc": "蛮好的",
+          "imgFile": {}
+        }
+      ],
+      "foodCategory": [
+        1
+      ],
+      "goodsCategory": []
+    },
+    {
+      "id": 6,
+      "name": "辅料1",
+      "unitPrice": 12.99,
+      "inventory": 999,
+      "desc": "不可描述",
+      "dose": 500,
+      "shelves": true,
+      "minNumber": 1,
+      "minAmount": 100,
+      "maxAmount": 100000,
+      "purchaseDate": "2017-07-11",
+      "createDate": "2017/7/27 上午1:10:15",
+      "modifyDate": "2017/7/30 上午2:43:59",
+      "hedgeDate": "2017-07-11",
+      "imgUrl": "blob:http://localhost:8080/cf8ea56c-c990-473a-ba16-74152847511c",
+      "imgFile": null,
+      "manufacturerInformation": {
+        "name": "大厂",
+        "address": "火星",
+        "contactInformation": "12345674567",
+        "productionDate": "2017-07-11",
+        "harvestDate": "2017-07-11"
+      },
+      "pictureText": [
+        {
+          "imgUrl": "blob:null/c3e281fb-8568-4a96-a571-e960820766d3",
+          "desc": "蛮好的",
+          "imgFile": {}
+        }
+      ],
+      "foodCategory": [
+        2
+      ],
+      "goodsCategory": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 7,
+      "name": "辅料2",
+      "unitPrice": 12.99,
+      "inventory": 999,
+      "desc": "不可描述",
+      "dose": 500,
+      "shelves": true,
+      "minNumber": 1,
+      "minAmount": 100,
+      "maxAmount": 100000,
+      "purchaseDate": "2017-07-11",
+      "createDate": "2017/7/27 上午1:10:32",
+      "modifyDate": "2017/7/30 上午2:44:11",
+      "hedgeDate": "2017-07-11",
+      "imgUrl": "blob:http://localhost:8080/cf8ea56c-c990-473a-ba16-74152847511c",
+      "imgFile": null,
+      "manufacturerInformation": {
+        "name": "大厂",
+        "address": "火星",
+        "contactInformation": "12345674567",
+        "productionDate": "2017-07-11",
+        "harvestDate": "2017-07-11"
+      },
+      "pictureText": [
+        {
+          "imgUrl": "blob:null/cec6991c-9f2e-4544-814c-b2148dffa4dc",
+          "desc": "蛮好的",
+          "imgFile": {}
+        }
+      ],
+      "foodCategory": [
+        2
+      ],
+      "goodsCategory": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": 8,
+      "name": "酱料1",
+      "unitPrice": 12.99,
+      "inventory": 999,
+      "desc": "不可描述",
+      "dose": 500,
+      "shelves": true,
+      "minNumber": 1,
+      "minAmount": 100,
+      "maxAmount": 100000,
+      "purchaseDate": "2017-07-11",
+      "createDate": "2017/7/27 上午1:10:49",
+      "modifyDate": "2017/7/30 上午2:44:25",
+      "hedgeDate": "2017-07-11",
+      "imgUrl": "blob:http://localhost:8080/cf8ea56c-c990-473a-ba16-74152847511c",
+      "imgFile": null,
+      "manufacturerInformation": {
+        "name": "大厂",
+        "address": "火星",
+        "contactInformation": "12345674567",
+        "productionDate": "2017-07-11",
+        "harvestDate": "2017-07-11"
+      },
+      "pictureText": [
+        {
+          "imgUrl": "blob:null/4daab507-6ea7-4024-99e1-f24c754bcc99",
+          "desc": "蛮好的",
+          "imgFile": {}
+        }
+      ],
+      "foodCategory": [
+        3
+      ],
+      "goodsCategory": [
+        2
+      ]
+    },
+    {
+      "id": 9,
+      "name": "酱料2",
+      "unitPrice": 12.99,
+      "inventory": 999,
+      "desc": "不可描述",
+      "dose": 500,
+      "shelves": true,
+      "minNumber": 1,
+      "minAmount": 100,
+      "maxAmount": 100000,
+      "purchaseDate": "2017-07-11",
+      "createDate": "2017/7/27 上午1:11:03",
+      "modifyDate": "2017/7/30 上午2:44:36",
+      "hedgeDate": "2017-07-11",
+      "imgUrl": "blob:http://localhost:8080/cf8ea56c-c990-473a-ba16-74152847511c",
+      "imgFile": null,
+      "manufacturerInformation": {
+        "name": "大厂",
+        "address": "火星",
+        "contactInformation": "12345674567",
+        "productionDate": "2017-07-11",
+        "harvestDate": "2017-07-11"
+      },
+      "pictureText": [
+        {
+          "imgUrl": "blob:null/3f0df63a-82bc-4ddb-9748-f72e74f5910e",
+          "desc": "蛮好的",
+          "imgFile": {}
+        }
+      ],
+      "foodCategory": [
+        3
+      ],
+      "goodsCategory": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": 10,
+      "name": "其他1",
+      "unitPrice": 12.99,
+      "inventory": 999,
+      "desc": "不可描述",
+      "dose": 500,
+      "shelves": true,
+      "minNumber": 1,
+      "minAmount": 100,
+      "maxAmount": 100000,
+      "purchaseDate": "2017-07-11",
+      "createDate": "2017/7/27 上午1:11:23",
+      "modifyDate": "2017/7/30 上午2:44:50",
+      "hedgeDate": "2017-07-11",
+      "imgUrl": "blob:http://localhost:8080/cf8ea56c-c990-473a-ba16-74152847511c",
+      "imgFile": null,
+      "manufacturerInformation": {
+        "name": "大厂",
+        "address": "火星",
+        "contactInformation": "12345674567",
+        "productionDate": "2017-07-11",
+        "harvestDate": "2017-07-11"
+      },
+      "pictureText": [
+        {
+          "imgUrl": "blob:null/d2d38eea-0dd0-45c1-aa1c-8ab938f4612b",
+          "desc": "蛮好的",
+          "imgFile": {}
+        }
+      ],
+      "foodCategory": [
+        4
+      ],
+      "goodsCategory": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": 11,
+      "name": "其他2",
+      "unitPrice": 12.99,
+      "inventory": 999,
+      "desc": "不可描述",
+      "dose": 500,
+      "shelves": true,
+      "minNumber": 1,
+      "minAmount": 100,
+      "maxAmount": 100000,
+      "purchaseDate": "2017-07-11",
+      "createDate": "2017/7/27 上午1:11:42",
+      "modifyDate": "2017/7/30 上午2:45:06",
+      "hedgeDate": "2017-07-11",
+      "imgUrl": "blob:http://localhost:8080/cf8ea56c-c990-473a-ba16-74152847511c",
+      "imgFile": null,
+      "manufacturerInformation": {
+        "name": "大厂",
+        "address": "火星",
+        "contactInformation": "12345674567",
+        "productionDate": "2017-07-11",
+        "harvestDate": "2017-07-11"
+      },
+      "pictureText": [
+        {
+          "imgUrl": "blob:null/59a5327e-f2eb-4e1b-a3d8-4987250865c7",
+          "desc": "蛮好的",
+          "imgFile": {}
+        }
+      ],
+      "foodCategory": [
+        4
+      ],
+      "goodsCategory": []
+    },
+    {
+      "id": 12,
+      "name": "食材",
+      "unitPrice": 12.99,
+      "inventory": 999,
+      "desc": "不可描述",
+      "dose": 500,
+      "shelves": true,
+      "minNumber": 1,
+      "minAmount": 100,
+      "maxAmount": 100000,
+      "purchaseDate": "2017-07-11",
+      "createDate": "2017/7/30 上午1:19:43",
+      "modifyDate": "2017/7/30 上午2:45:18",
+      "hedgeDate": "2017-07-11",
+      "manufacturerInformation": {
+        "name": "大厂",
+        "address": "火星",
+        "contactInformation": "12345674567",
+        "productionDate": "2017-07-11",
+        "harvestDate": "2017-07-11"
+      },
+      "pictureText": [
+        {
+          "imgUrl": "blob:null/c3e28eed-a238-4fb7-a405-1a82ae09512e",
+          "desc": "适当放松的",
+          "imgFile": {}
+        }
+      ],
+      "foodCategory": [
+        4
+      ],
+      "goodsCategory": [
+        1,
+        4
+      ]
+    }
+  ],
+  "cookbook": [
+    {
+      "id": 1,
+      "name": "菜谱",
+      "unitPrice": 35.99,
+      "inventory": "1000",
+      "desc": "不可描述",
+      "shelves": true,
+      "createDate": "2017/7/27 下午11:45:01",
+      "modifyDate": "2017/8/2 下午6:36:39",
+      "imgUrl": "blob:http://localhost:8080/cf8ea56c-c990-473a-ba16-74152847511c",
+      "imgFile": null,
+      "pictureText": [
+        {
+          "imgUrl": "blob:http://localhost:8080/1f8228dc-2d02-421e-ac0e-b6b4367a6667",
+          "desc": "苹果",
+          "imgFile": {}
+        }
+      ],
+      "pictureTextCoures": [
+        {
+          "imgUrl": "blob:http://localhost:8080/b28ebf51-bb81-4269-8b98-3fa07860ac13",
+          "desc": "好的分类",
+          "imgFile": {}
+        },
+        {
+          "imgUrl": "blob:http://localhost:8080/b76aad92-bb87-4366-a472-d8a28cb1e78c",
+          "desc": "小米",
+          "imgFile": {}
+        }
+      ],
+      "foods": [
+        [
+          {
+            "foodId": 4,
+            "dosage": 100
+          },
+          {
+            "foodId": 5,
+            "dosage": 20
+          }
+        ],
+        [
+          {
+            "foodId": 6,
+            "dosage": 300
+          }
+        ],
+        [
+          {
+            "foodId": 9,
+            "dosage": 55
+          },
+          {
+            "foodId": 8,
+            "dosage": 100
+          }
+        ],
+        [
+          {
+            "foodId": 10,
+            "dosage": 75
+          }
+        ]
+      ],
+      "goodsCategory": [
+        1,
+        3
+      ],
+      "edit": false,
+      "editState": true,
+      "rowState": true
+    },
+    {
+      "id": 2,
+      "name": "食材",
+      "unitPrice": 22.6,
+      "inventory": "1003",
+      "desc": "不可描述",
+      "shelves": true,
+      "createDate": "2017/7/28 下午8:45:24",
+      "modifyDate": "2017/7/28 下午8:45:24",
+      "imgUrl": "blob:http://localhost:8080/cf8ea56c-c990-473a-ba16-74152847511c",
+      "imgFile": null,
+      "pictureText": [],
+      "pictureTextCoures": [],
+      "foods": [
+        [
+          {
+            "foodId": 4,
+            "dosage": 100
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "foodId": 10,
+            "dosage": 100
+          }
+        ]
+      ],
+      "goodsCategory": [
+        1,
+        3,
+        2
+      ],
+      "edit": false,
+      "rowState": true
+    },
+    {
+      "id": 3,
+      "name": "测试",
+      "unitPrice": "74.40",
+      "inventory": 999,
+      "desc": "不可描述",
+      "shelves": true,
+      "createDate": "2017/8/2 下午5:05:24",
+      "modifyDate": "2017/8/2 下午5:39:55",
+      "pictureText": [
+        {
+          "imgUrl": "blob:http://localhost:8080/869ed6f5-6e72-4e6c-bb46-574a94ba89cf",
+          "desc": "123456789",
+          "imgFile": {}
+        }
+      ],
+      "pictureTextCoures": [],
+      "foods": [
+        [
+          {
+            "id": 4,
+            "dosage": 100
+          },
+          {
+            "id": 5,
+            "dosage": 200
+          }
+        ],
+        [
+          {
+            "id": 6,
+            "dosage": 300
+          }
+        ],
+        [
+          {
+            "id": 9,
+            "dosage": 400
+          }
+        ],
+        [
+          {
+            "id": 11,
+            "dosage": 500
+          }
+        ]
+      ],
+      "goodsCategory": [
+        1,
+        3
+      ]
+    }
+  ],
+  "goodsCategory": [
+    {
+      "id": 1,
+      "name": "荤菜",
+      "imgFile": null,
+      "imgUrl": "https://cn.vuejs.org/images/logo.png",
+      "createDate": "2017/7/12 下午1:58:54",
+      "modifyDate": "2017/7/12 下午1:58:54",
+      "index": 1,
+      "upId": null
+    },
+    {
+      "id": 2,
+      "name": "素菜",
+      "imgFile": null,
+      "imgUrl": "https://cn.vuejs.org/images/logo.png",
+      "createDate": "2017/7/12 下午2:11:38",
+      "modifyDate": "2017/7/12 下午2:11:38",
+      "index": 1,
+      "upId": null
+    },
+    {
+      "id": 3,
+      "name": "鱼",
+      "imgFile": null,
+      "imgUrl": "https://cn.vuejs.org/images/logo.png",
+      "createDate": "2017/7/12 下午2:11:58",
+      "modifyDate": "2017/7/12 下午2:11:58",
+      "index": 2,
+      "upId": 1
+    },
+    {
+      "id": 4,
+      "name": "猪",
+      "imgFile": null,
+      "imgUrl": "https://cn.vuejs.org/images/logo.png",
+      "createDate": "2017/7/12 下午3:35:14",
+      "modifyDate": "2017/7/12 下午4:29:21",
+      "index": 2,
+      "upId": 1
+    },
+    {
+      "id": 5,
+      "name": "小白菜",
+      "imgFile": null,
+      "imgUrl": "https://cn.vuejs.org/images/logo.png",
+      "createDate": "2017/7/12 下午3:35:35",
+      "modifyDate": "2017/7/12 下午3:35:35",
+      "index": 2,
+      "upId": 2
+    }
+  ],
+  "pack": [
+    {
+      "id": 1,
+      "name": "套餐1",
+      "unitPrice": "434.30",
+      "inventory": "103",
+      "desc": "套餐1描述",
+      "shelves": true,
+      "createDate": "2017/8/2 下午6:11:33",
+      "modifyDate": "2017/8/2 下午6:31:20",
+      "pictureText": [
+        {
+          "imgUrl": "blob:http://localhost:8080/65173a44-6058-4459-a846-d4fb36c74b8a",
+          "desc": "小米",
+          "imgFile": {}
+        },
+        {
+          "imgUrl": "blob:http://localhost:8080/dbb604c5-6d2b-45c4-8dcd-5fd5c6295cb8",
+          "desc": "vue",
+          "imgFile": {}
+        }
+      ],
+      "foods": [
+        [
+          {
+            "id": 4,
+            "dosage": 100
+          }
+        ]
+      ],
+      "cookbooks": [
+        {
+          "id": 1,
+          "dosage": 10
+        },
+        {
+          "id": 3,
+          "dosage": 1
+        }
+      ],
+      "goodsCategory": [
+        1
+      ],
+      "foodsPrice": 0,
+      "cookbooksPrice": 434.30000000000007
+    }
+  ]
+}

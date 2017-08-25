@@ -1,26 +1,31 @@
 <template>
   <div>
+    <!-- 操作 -->
     <div class="opeartion">
       <div style="float:left;">
-        <el-button size="small" type="primary" :disabled="loading[0]"  @click="routePush('/foods/edit', null)">添加食材</el-button>
-        <el-button size="small" type="primary" :disabled="loading[2]" v-show="loading[0]" :loading="loading[2]" @click="getFoodData()">刷新</el-button>
+        <el-button size="small" type="primary" :disabled="loading[0]" @click="routePush('/foods/edit', null)">添加食材</el-button>
+        <el-button size="small" type="primary" :disabled="loading[2]" :loading="loading[2]" @click="refresh()">刷新</el-button>
       </div>
       <div class="right">
-        <div>
-          <el-select size="small" v-model="value8" filterable placeholder="请选择">
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+        <div v-if="goodsCategoryData.data">
+          <el-cascader size="small" placeholder="商品分类" :options="goodsCategoryData.data" v-model="searchGoods" :show-all-levels="false" change-on-select filterable clearable :props="{value: 'id', label: 'name' }"></el-cascader>
+        </div>
+        <div v-if="foodCategoryData.data">
+          <el-select size="small" v-model="searchFood" filterable placeholder="食材分类">
+            <el-option v-for="item in foodCategoryData.data" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </div>
         <div>
-          <el-input size="small" placeholder="请输入内容"> </el-input>
+          <el-input v-model="searchName" size="small" placeholder="请输入内容"> </el-input>
         </div>
         <div>
-          <el-button type="primary" size="small" icon="search">搜索</el-button>
+          <el-button type="primary" size="small" icon="search" @click="search()">搜索</el-button>
         </div>
       </div>
     </div>
+    <!-- 食材表格 -->
     <div v-loading.body="loading[0]" :element-loading-text="loading[1]" style="padding-bottom: 20px;">
-      <el-table :data="showData" style="width: 100%" ref="multipleTable" >
+      <el-table :data="showData" style="width: 100%" ref="multipleTable">
         <el-table-column label="图片" width="86">
           <template scope="scope">
             <img :src="scope.row.pictureText | imgV" alt="没有图片">
@@ -35,7 +40,7 @@
           </template>
         </el-table-column>
         <el-table-column label="剂量" prop="dose"></el-table-column>
-        <el-table-column label="价格" min-width="150">
+        <el-table-column label="价格" min-width="100">
           <template scope="scope">
             <el-input size="small" v-if="scope.row.edit" v-model="rowEdits[scope.row.id].unitPrice" type="number" @change="$refs.modify.rowModify(scope.row)">
               <template slot="prepend">￥</template>
@@ -47,7 +52,7 @@
             </el-tooltip>
           </template>
         </el-table-column>
-        <el-table-column label="库存" min-width="150">
+        <el-table-column label="库存" min-width="100">
           <template scope="scope">
             <el-input size="small" v-if="scope.row.edit" v-model="rowEdits[scope.row.id].inventory" type="number" @change="$refs.modify.rowModify(scope.row)">
               <template slot="append">g</template>
@@ -59,21 +64,21 @@
             </el-tooltip>
           </template>
         </el-table-column>
-        <el-table-column label="进货日期" min-width="200">
+        <el-table-column label="进货日期" min-width="120">
           <template scope="scope">
             <el-date-picker @change="rowEdits[scope.row.id].purchaseDate = $event, $refs.modify.rowModify(scope.row)" size="small" v-if="scope.row.edit" v-model="rowEdits[scope.row.id].purchaseDate" type="date" :picker-options="$store.state.dateRules.purchaseDate">
             </el-date-picker>
             <el-tooltip class="item" effect="dark" content="双击修改" placement="right">
-              <span @dblclick="$refs.modify.edit(scope.row)" v-show="!scope.row.edit">{{scope.row.purchaseDate}} </span>
+              <span @dblclick="$refs.modify.edit(scope.row)" v-show="!scope.row.edit">{{scope.row.purchaseDate | DateV}} </span>
             </el-tooltip>
           </template>
         </el-table-column>
-        <el-table-column label="保质期" min-width="200">
+        <el-table-column label="保质期" min-width="120">
           <template scope="scope">
             <el-date-picker size="small" v-if="scope.row.edit" v-model="rowEdits[scope.row.id].hedgeDate" type="date" disabledDate :picker-options="$store.state.dateRules.hedgeDate" @change="rowEdits[scope.row.id].hedgeDate = $event, $refs.modify.rowModify(scope.row)">
             </el-date-picker>
             <el-tooltip class="item" effect="dark" content="双击修改" placement="right">
-              <span @dblclick="$refs.modify.edit(scope.row)" v-show="!scope.row.edit">{{scope.row.hedgeDate}} </span>
+              <span @dblclick="$refs.modify.edit(scope.row)" v-show="!scope.row.edit">{{scope.row.hedgeDate | DateV}} </span>
             </el-tooltip>
           </template>
         </el-table-column>
@@ -97,56 +102,44 @@
         </el-table-column>
       </el-table>
     </div>
-      <el-row type="flex" justify="center">
-    <div class="page">
-      <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="pageIndex + 1"
-        :page-sizes="[10, 20, 30, 50]"
-        :page-size="pageSize"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="count">
-      </el-pagination>
-  </div>
+    <!-- 分页 -->
+    <el-row type="flex" justify="center">
+      <div class="page">
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="page.index + 1" :page-sizes="[10, 20, 30, 50]" :page-size="page.size" layout="total, sizes, prev, pager, next, jumper" :total="count">
+        </el-pagination>
+      </div>
     </el-row>
   </div>
 </template>
 
 <script>
 // import qs from 'qs'
+import { mapState } from 'vuex'
 import MinModify from '../00.common/minModify.vue'
 export default {
   name: 'foodCategory',
   components: { MinModify },
   data() {
     return {
+      // 显示数据
+      showData: null,
+      // 数据条数
       count: 0,
-      pageIndex: 0,
-      pageSize: 10,
+      // 分页数据
+      page: {
+        index: 0,
+        size: 10,
+        good: '',
+        food: '',
+        name: ''
+      },
       // 0显示 1文字 2刷新按钮状态
       loading: [true, '正在加载中...', true],
-      msg: '食材概览',
-      options: [
-        {
-          value: '选项1',
-          label: '黄金糕'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
-        }
-      ],
-      value8: '',
-      showData: [],
+      // 搜索查询数据
+      searchGoods: [],
+      searchFood: [],
+      searchName: '',
+      // 直接编辑数据
       editState: false,
       rowEdit: {
         id: '',
@@ -156,20 +149,42 @@ export default {
         purchaseDate: '',
         hedgeDate: ''
       },
+      // 修改的数据与食材id为key
       rowEdits: {}
     }
   },
+  computed: {
+    ...mapState(['goodsCategoryData', 'foodCategoryData'])
+  },
   // 挂载前获取数据
   beforeMount() {
-    this.getFoodData()
+    console.log('....', this.showData)
+    if (!this.showData) {
+      this.getFoodData()
+    }
   },
   methods: {
+    refresh() {
+      this.page.index = 0
+      this.page.good = ''
+      this.page.food = ''
+      this.getFoodData()
+    },
     getFoodData() {
+      console.log('搜索过滤', this.page)
       this.loading = [true, '正在加载中...', true]
+      let formData = new FormData()
+      for (let i in this.page) {
+        formData.append(`${i}`, this.page[i])
+      }
       this.ajax(
         {
-          method: 'get',
-          url: `${this.$store.state.apiUrl}/food/${this.pageIndex}/${this.pageSize}`
+          method: 'post',
+          url: `${this.$store.state.apiUrl}/food/page`,
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          },
+          data: formData
         }
       )
     },
@@ -256,15 +271,28 @@ export default {
     },
     // 显示条数操作
     handleSizeChange(e) {
-      this.pageSize = e
+      this.page.size = e
       this.getFoodData()
       console.log('条数', e)
     },
     // 页码操作
     handleCurrentChange(e) {
-      this.pageIndex = e - 1
+      this.page.index = e - 1
       this.getFoodData()
       console.log('页码', e - 1)
+    },
+    // 搜索过滤
+    search() {
+      this.page.good = ''
+      this.page.food = this.searchFood
+      this.page.name = this.searchName
+      if (this.searchGoods.length > 0) {
+        this.page.good = this.searchGoods[this.searchGoods.length - 1]
+      }
+      console.log('搜索过滤', this.page)
+      this.getFoodData()
+    },
+    test() {
     }
   }
 }

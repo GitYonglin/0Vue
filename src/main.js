@@ -40,13 +40,10 @@ Vue.filter('imgV', (value) => {
   }
   return ''
 })
-// 后台文件资源
-Vue.filter('aipFileV', (value) => {
-  console.log('12345679', value)
-  if (value.indexOf('blob:')) {
-    return value
-  }
-  return store.state.apiUrl + value
+// 日期格式化
+Vue.filter('DateV', (value) => {
+  // console.log('日期', value.slice(0, 10))
+  return value.slice(0, 10)
 })
 // Axios.defaults.withCredentials = true //跨域携带cookie
 /* eslint-disable no-new */
